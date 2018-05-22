@@ -1,4 +1,4 @@
-FROM dpatriot/docker-awscli
+FROM webgames/awscli
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
 # Install Java.
