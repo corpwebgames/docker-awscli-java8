@@ -1,8 +1,8 @@
 FROM webgames/awscli
+MAINTAINER ebirukov
 
 ENV LANG en_US.UTF-8
 
-# Install Java.
 ENV JAVA_VERSION=11.0.5 \
         JAVA_PKG=jdk-11.0.5_linux-x64_bin.tar.gz \
         JAVA_HOME=/usr/java/jdk-11
@@ -12,10 +12,12 @@ ENV     PATH $JAVA_HOME/bin:$PATH
 RUN apt-get update && \
         apt-get install -y software-properties-common
 
+ARG JDK_PATH
+
 RUN set -eux; \
         \
         mkdir -p "$JAVA_HOME"; \
-        curl -s https://webgames-app-distr.s3.amazonaws.com/jdk-distr/$JAVA_PKG -o /tmp/jdk.tgz; \
+        curl -s $JDK_PATH/$JAVA_PKG -o /tmp/jdk.tgz; \
         tar --extract --file /tmp/jdk.tgz --directory "$JAVA_HOME" --strip-components 1; \
         rm /tmp/jdk.tgz; \
         \
