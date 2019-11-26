@@ -1,7 +1,7 @@
 FROM webgames/awscli
 MAINTAINER ebirukov
 
-ENV LANG en_US.UTF-8
+ENV LANG C.UTF-8
 
 ENV JAVA_VERSION=11.0.5 \
         JAVA_PKG=jdk-11.0.5_linux-x64_bin.tar.gz \
